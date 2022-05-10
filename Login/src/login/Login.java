@@ -1,6 +1,7 @@
 package login;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
@@ -16,30 +17,30 @@ public class Login extends Application{
         Pane pane = new Pane();
         pane.getChildren();
         
+        HBox hb = new HBox();
         Label label1 = new Label("Username:");
-        Label label2 = new Label("Password:");
-        TextField textField = new TextField ();
-        textField.setPrefColumnCount(15);
         TextField textField1 = new TextField ();
         textField1.setPrefColumnCount(15);
-        VBox vb = new VBox();
-        vb.getChildren().addAll(label1,textField,label2,textField1);
-        vb.setSpacing(3);
+        hb.getChildren().addAll(label1,textField1);
         
+        HBox hb1 = new HBox();
+        Label label2 = new Label("Password:");
+        TextField textField2 = new TextField ();
+        textField2.setPrefColumnCount(15);
+        hb1.getChildren().addAll(label2,textField2);
         
-        Pane pane1 = new Pane();
-        pane1.getChildren();
-        
+        HBox hb2 = new HBox();
         Button A = new Button("Login");
         Button B = new Button("Cancel");
         Button C = new Button("Clear");
-        HBox hb = new HBox();
-        hb.setSpacing(15);
-        hb.relocate(0, 100);
-        hb.getChildren().addAll(A,B,C);
-        pane1.getChildren().addAll(hb);
+        hb2.getChildren().addAll(A,B,C);
+        hb2.setSpacing(15);
+        hb2.setAlignment(Pos.CENTER);
         
-        pane.getChildren().addAll(vb,pane1);
+        VBox vb = new VBox();
+        vb.getChildren().addAll(hb,hb1,hb2);
+        
+        pane.getChildren().addAll(vb);
         
         Scene scene = new Scene(pane);
         primarystage.setTitle("LOGIN-PAGE");
